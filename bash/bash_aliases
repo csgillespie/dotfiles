@@ -1,0 +1,31 @@
+# $Id: skel.alias,v 1.2 1998/04/20 11:41:32 luisgh Exp $
+# Luis Francisco González <luisgh@debian.org> based on that of Vadik Vygonets
+# Please check /usr/doc/tcsh/examples/alias to see other possible values.
+alias ls="ls --color=auto --group-directories-first"
+alias rm="rm -i"
+alias R="R --no-save --no-restore-data --quiet"
+alias grep="grep --color=auto"
+alias python=python3
+alias rstudio=latest_rstudio
+
+# Turn-off reboot without sudo
+alias power-off="systemctl poweroff -i"
+alias reboot="systemctl reboot -i"
+alias log-out="gnome-session-quit"
+
+# Print stderr to null
+alias firefox="firefox & exit"
+alias google-chrome="google-chrome & exit"
+alias mendeley="/data/ncsg3/mendeleydesktop/bin/mendeleydesktop & exit"
+
+## Git aliases
+# Remove old branches
+#alias gclean="git branch --merged | grep -Ev '(^\*|master)' | xargs git branch -d"
+alias glog="git log --pretty=format:'%C(yellow)%h|%Cred%cr|%C(Cyan)%an|%Creset%s' --date=short --color=always  | column  -t -s'|' 2>/dev/null | head -n 20"
+alias gchk="git checkout -"
+alias gp="git pull"
+
+# make less more friendly for non-text input files, see lesspipe(0)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
